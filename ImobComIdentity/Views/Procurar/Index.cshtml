@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ImobComIdentity.ViewModel.ImovelPermutaViewModel>
+
+
+<table class="table" id="Encontrar">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ClienteInteressado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imovel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proprietario.Cliente)
+            </th>
+            <th>
+
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClienteInteressado.Cliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Imovel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Proprietario.Cliente)
+                </td>
+                <td>
+
+                    <a asp-action="Details" asp-route-id="@item.ClienteInteressado.Id">Detalhes</a>
+
+                </td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
